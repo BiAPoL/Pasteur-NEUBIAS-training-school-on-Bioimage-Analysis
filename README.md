@@ -1,4 +1,12 @@
-# Image data science with Python and Napari @EPFL
+# NEUBIAS Pasteur course on Bioimage Analysis
+
+Here, we cover three sessions of the *Early career investigators track* of the [NEUBIAS Pasteur course on Bioimage Analysis](https://research.pasteur.fr/en/course/neubias-pasteur-course-on-bioimage-analysis/)
+
+* Introduction to bio-image analysis (Robert Haase)
+* How to build an analysis workflow (Robert Haase)
+* From assistant to notebooks
+
+## License
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
