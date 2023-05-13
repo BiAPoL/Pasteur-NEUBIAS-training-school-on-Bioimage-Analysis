@@ -11,7 +11,7 @@ Here, we cover three sessions of the *Early career investigators track* of the [
 
 ## How to use this material
 
-For following the course, we recommend downloading [the repository from which this Jupyter book is made](https://github.com/BiAPoL/Image-data-science-with-Python-and-Napari-EPFL2022).
+For following the course, we recommend downloading [the repository from which this Jupyter book is made](https://github.com/BiAPoL/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis).
 All Jupyter Notebooks are executable so that attendees can reproduce all demos and exercises.
 
 ![img.png](how_to_download.png)
@@ -19,7 +19,7 @@ All Jupyter Notebooks are executable so that attendees can reproduce all demos a
 Assuming you downloaded the repository to your Desktop, you can open the Jupyter book by opening a terminal and typing:
 
 ```bash
-cd Desktop/Image-data-science-with-Python-and-Napari-EPFL2022
+cd Desktop/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis
 
 conda activate devbio-napari-env
 
@@ -34,7 +34,7 @@ Using Jupyter lab, you can navigate to the course lessons in the `docs` folder.
 
 ## Feedback and support
 
-If you have any questions, please use the anonymous etherpad (see email) or create a [github issue](https://github.com/BiAPoL/Image-data-science-with-Python-and-Napari-EPFL2022/issues).
+If you have any questions, please use the anonymous etherpad (see email) or create a [github issue](https://github.com/BiAPoL/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/issues).
 Alternatively, open a thread on [image.sc](https://image.sc), put a link to the lesson or exercise you want to ask a question about and tag @haesleinhuepf.
 
 ## Acknowledgements
