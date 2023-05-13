@@ -4,10 +4,10 @@ This [Jupyter book](https://jupyterbook.org/) contains training resources for sc
 It specifically aims for students and scientists working with microscopy images in the life sciences.
 
 Here, we cover three sessions of the *Early career investigators track* of the [NEUBIAS Pasteur course on Bioimage Analysis](https://research.pasteur.fr/en/course/neubias-pasteur-course-on-bioimage-analysis/)
+
 * Introduction to bio-image analysis (Robert Haase)
 * How to build an analysis workflow (Robert Haase)
 * From assistant to notebooks
-
 
 ## How to use this material
 
@@ -39,12 +39,7 @@ Alternatively, open a thread on [image.sc](https://image.sc), put a link to the 
 
 ## Acknowledgements
 
-This course was held virtually at EPFL Lausanne in December 2022. We would like to thank Suliana Manley for the invitation, Edward Andò, Mallory Wittwer, Florian Aymanns for the local support and the EPFL Lausanne for financial support. 
-We would like to thank all the people who shared teaching materials we are reusing here, in particular Anna Poetsch ([Biotec Dresden](https://tu-dresden.de/cmcb/biotec/forschungsgruppen/poetsch)), 
+This course was held virtually at EPFL Lausanne in December 2022. We would like to thank Suliana Manley for the invitation, Edward Andò, Mallory Wittwer, Florian Aymanns for the local support and the EPFL Lausanne for financial support.
+We would like to thank all the people who shared teaching materials we are reusing here, in particular Anna Poetsch ([Biotec Dresden](https://tu-dresden.de/cmcb/biotec/forschungsgruppen/poetsch)),
 Benoit Lombardot (MPI-CBG Dresden), Martin Weigert (EPFL Lausanne) and Alexander Krull (U Birmingham).
 We acknowledge support by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy—EXC2068–Cluster of Excellence Physics of Life of TU Dresden.
-
-
-
-
-
