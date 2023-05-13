@@ -8,22 +8,22 @@ options: # The options key will be applied to all chapters, but not sub-sections
   numbered: False
 
 chapters:
-  - file: 30_From_assistant_to_notebooks/Readme
+  - file: 30_From_assistant_to_notebooks/readme
     sections:
-      - file: day1b_Python_Introduction/readme
+      - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/readme
         sections:
-          - file: day1b_Python_Introduction/01_our_first_juptyer_notebook
-          - file: day1b_Python_Introduction/02_Math_in_python
-          - file: day1b_Python_Introduction/03_Dont_try_this_at_home
-          - file: day1b_Python_Introduction/04_Basic_types
-          - file: day1b_Python_Introduction/05_lists_tuples
-          - file: day1b_Python_Introduction/05a_cropping_lists
-          - file: day1b_Python_Introduction/05b_cropping_images
-          - file: day1b_Python_Introduction/05c_sorting_lists
-          - file: day1b_Python_Introduction/05d_masking
-          - file: day1b_Python_Introduction/06_Dictionaries_and_tables
-      - file: day1c_Python_loops_conditions_functions/readme
+          - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/10_our_first_juptyer_notebook
+          - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/20_Raw_workflow_example
+          - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/30_Documented_workflow_example
+      - file: 30_From_assistant_to_notebooks/20_Python_introduction/readme
         sections:
-          - file: day1c_Python_loops_conditions_functions/07_Conditions
-          - file: day1c_Python_loops_conditions_functions/08_loops
-          - file: day1c_Python_loops_conditions_functions/09_custom_functions
+          - file: 30_From_assistant_to_notebooks/20_Python_introduction/10_Math_in_python
+          - file: 30_From_assistant_to_notebooks/20_Python_introduction/20_Dont_try_this_at_home
+          - file: 30_From_assistant_to_notebooks/20_Python_introduction/30_Basic_types
+          - file: 30_From_assistant_to_notebooks/20_Python_introduction/40_lists_tuples
+          - file: 30_From_assistant_to_notebooks/20_Python_Introduction/50_loops
+      - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/readme
+        sections:
+          - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/10_Folder_structures
+          - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/20_Advanced_Folder_structures_2
+          - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/30_Folder_processing_example
