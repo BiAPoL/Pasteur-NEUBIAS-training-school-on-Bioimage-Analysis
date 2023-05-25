@@ -165,7 +165,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l3"><a class="reference internal" href="../10_exporting_workflows_as_notebooks/30_Documented_workflow_example.html">Nuclei segmentation workflow</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../10_exporting_workflows_as_notebooks/30_Documented_workflow_example.html">Nulei density estimation workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="readme.html">Processing folders of images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -387,7 +388,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../../data/BBBC007_batch&quot;</span><span class="p">)</span>
 <span class="c1"># define a folder to save the results</span>
-<span class="n">result_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../../data/BBBC007_batch/results&quot;</span><span class="p">)</span>
+<span class="n">result_folder</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;results&quot;</span>
 
 <span class="c1"># make sure the result folder exists</span>
 <span class="n">result_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -396,26 +397,30 @@ document.write(`
     <span class="c1"># load image</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">image_path</span><span class="p">))</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+
     <span class="c1"># reduce noise</span>
     <span class="n">image1_gb</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">gaussian_blur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-    
+
     <span class="c1"># subtract background</span>
     <span class="n">image2_thb</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">top_hat_box</span><span class="p">(</span><span class="n">image1_gb</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-    
+
     <span class="c1"># binarize</span>
     <span class="n">image3_to</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image2_thb</span><span class="p">)</span>
 
     <span class="c1"># label touching objects</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">nsitk</span><span class="o">.</span><span class="n">touching_objects_labeling</span><span class="p">(</span><span class="n">image3_to</span><span class="p">)</span>
+    <span class="n">image4_T</span> <span class="o">=</span> <span class="n">nsitk</span><span class="o">.</span><span class="n">touching_objects_labeling</span><span class="p">(</span><span class="n">image3_to</span><span class="p">)</span>
+
+    <span class="c1"># count neighbors</span>
+    <span class="n">image5_pncm</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">proximal_neighbor_count_map</span><span class="p">(</span><span class="n">image4_T</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">)</span>
 
     <span class="c1"># save the resulting label image in the result folder</span>
     <span class="n">image_name_no_extension</span> <span class="o">=</span> <span class="n">image_path</span><span class="o">.</span><span class="n">stem</span>
-    <span class="n">output_path</span> <span class="o">=</span> <span class="n">result_folder</span> <span class="o">/</span> <span class="p">(</span><span class="n">image_name_no_extension</span> <span class="o">+</span> <span class="s2">&quot;_labels.tif&quot;</span><span class="p">)</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="n">result_folder</span> <span class="o">/</span> <span class="p">(</span><span class="n">image_name_no_extension</span> <span class="o">+</span> <span class="s2">&quot;_neighbor_count_map.tif&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_path</span><span class="p">))</span>
-    <span class="n">imsave</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">imsave</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">image5_pncm</span><span class="p">)</span>
 
     <span class="c1"># show the result</span>
-    <span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image5_pncm</span><span class="p">)</span>
 
     
 </pre></div>
@@ -423,59 +428,35 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/20P1_POS0005_D_1UL.tif
-Saving ../../../data/BBBC007_batch/results/20P1_POS0005_D_1UL_labels.tif
+Saving ../../../data/BBBC007_batch/results/20P1_POS0005_D_1UL_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/20P1_POS0005_D_1UL_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/3bdda4638b2c7ae95d01d34ea64ce1eed026f69df5883973e6bbc0b7bd2eb128.png" src="../../_images/3bdda4638b2c7ae95d01d34ea64ce1eed026f69df5883973e6bbc0b7bd2eb128.png" />
+<img alt="../../_images/7c443279bdb26c85988f51fbc7b1c3ee140e51c7aec4078f6727524b6f394680.png" src="../../_images/7c443279bdb26c85988f51fbc7b1c3ee140e51c7aec4078f6727524b6f394680.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/A9 p7d.tif
-Saving ../../../data/BBBC007_batch/results/A9 p7d_labels.tif
+Saving ../../../data/BBBC007_batch/results/A9 p7d_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/A9 p7d_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/75c386d70f2e539ba77fbbb992b8250faef35e2dde3c04d9d318abadc4429c03.png" src="../../_images/75c386d70f2e539ba77fbbb992b8250faef35e2dde3c04d9d318abadc4429c03.png" />
+<img alt="../../_images/23bc7b711364b73af2aea37e2fc60d0a4dce1a06fd0149b6805aaef135bd1a66.png" src="../../_images/23bc7b711364b73af2aea37e2fc60d0a4dce1a06fd0149b6805aaef135bd1a66.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/20P1_POS0010_D_1UL.tif
-Saving ../../../data/BBBC007_batch/results/20P1_POS0010_D_1UL_labels.tif
+Saving ../../../data/BBBC007_batch/results/20P1_POS0010_D_1UL_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/20P1_POS0010_D_1UL_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/83b7de33d0204c2dc0e8c133073a5c73d8409e3a61e1a5f20f7c597fd3dcbe3e.png" src="../../_images/83b7de33d0204c2dc0e8c133073a5c73d8409e3a61e1a5f20f7c597fd3dcbe3e.png" />
+<img alt="../../_images/ac3a8c085ef064f78f3e9ac367ba81b21c66ebc0a473e864cb906c835a74bccc.png" src="../../_images/ac3a8c085ef064f78f3e9ac367ba81b21c66ebc0a473e864cb906c835a74bccc.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/17P1_POS0013_D_1UL.tif
-Saving ../../../data/BBBC007_batch/results/17P1_POS0013_D_1UL_labels.tif
+Saving ../../../data/BBBC007_batch/results/17P1_POS0013_D_1UL_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/17P1_POS0013_D_1UL_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/e7bc26daff15b4e886cd06976d84a26c1afa0f796916308fe0e7a2a00cee63f7.png" src="../../_images/e7bc26daff15b4e886cd06976d84a26c1afa0f796916308fe0e7a2a00cee63f7.png" />
+<img alt="../../_images/96fec5eeec7b96c52693cf5167785e6859ce1e810b5977a1de5186a74aaebe05.png" src="../../_images/96fec5eeec7b96c52693cf5167785e6859ce1e810b5977a1de5186a74aaebe05.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/AS_09125_040701150004_A02f00d0.tif
-Saving ../../../data/BBBC007_batch/results/AS_09125_040701150004_A02f00d0_labels.tif
+Saving ../../../data/BBBC007_batch/results/AS_09125_040701150004_A02f00d0_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/AS_09125_040701150004_A02f00d0_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/d8d965368572ae1202e31b6c8a6853842b9cb43808efa2705bebccd5823eaa01.png" src="../../_images/d8d965368572ae1202e31b6c8a6853842b9cb43808efa2705bebccd5823eaa01.png" />
+<img alt="../../_images/54cb1755e5fa7ad53d98aaad2d8786515777f2bb63d0b135a5950aeb47068f6f.png" src="../../_images/54cb1755e5fa7ad53d98aaad2d8786515777f2bb63d0b135a5950aeb47068f6f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading ../../../data/BBBC007_batch/20P1_POS0007_D_1UL.tif
-Saving ../../../data/BBBC007_batch/results/20P1_POS0007_D_1UL_labels.tif
+Saving ../../../data/BBBC007_batch/results/20P1_POS0007_D_1UL_neighbor_count_map.tif
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/8s/7jr95f1d28vflnwm1cfqv7t40000gr/T/ipykernel_37547/2550216496.py:28: UserWarning: /Users/korten/Documents/workspace/Pasteur-NEUBIAS-training-school-on-Bioimage-Analysis/data/BBBC007_batch/results/20P1_POS0007_D_1UL_labels.tif is a low contrast image
-  imsave(output_path, labels)
-</pre></div>
-</div>
-<img alt="../../_images/f090f33c5d1fd64362b6a12c9b67679079a8699e7eeacbf2f4866fe20c6b773b.png" src="../../_images/f090f33c5d1fd64362b6a12c9b67679079a8699e7eeacbf2f4866fe20c6b773b.png" />
+<img alt="../../_images/a12f2a1f14ecc3304c8ec740705a1b142ab213d987d59f9888051bb170bfa19f.png" src="../../_images/a12f2a1f14ecc3304c8ec740705a1b142ab213d987d59f9888051bb170bfa19f.png" />
 </div>
 </div>
 </section>
