@@ -417,12 +417,12 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Project1_Car_Trunk
 |
 ├─ .DS_store
-├─ 00ae65c1c6631ae6f2be1a449902976e6eb8483bf6b0740d00530220832c6d3e.png
-├─ 0a7d30b252359a10fd298b638b90cb9ada3acced4e0c0e5a3692013f432ee4e9.png
-├─ 0acd2c223d300ea55d0546797713851e818e5c697d073b7f4091b96ce0f3d2fe.png
-├─ 0b0d577159f0d6c266f360f7b8dfde46e16fa665138bf577ec3c6f9c70c0cd1e.png
-├─ 0bf33d3db4282d918ec3da7112d0bf0427d4eafe74b3ee0bb419770eefe8d7d6.png
-└─ Readme.txt
+├─ more_nuclei.png
+├─ nuclei_large.png
+├─ nuclei.png
+├─ Readme.txt
+├─ staining.png
+└─ tissue.png
 </pre></div>
 </div>
 <p>The only good practice in this example is that there is at least a ‘Readme’ file. Every time you create a new folder, consider right away adding a ‘Readme.txt’ or ‘<a class="reference external" href="http://Readme.md">Readme.md</a>’ file there to provide a brief description of what is in this folder.</p>
@@ -433,14 +433,14 @@ document.write(`
 <p>We feed the data repository relative path to the Path class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_folder1</span> <span class="o">=</span> <span class="s1">&#39;../../data/Folder_Structures/Project1_Car_Trunk&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_folder1</span> <span class="o">=</span> <span class="s1">&#39;../../../data/Folder_Structures/Project1_Car_Trunk&#39;</span>
 <span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_folder1</span><span class="p">)</span>
 <span class="n">data_path</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../data/Folder_Structures/Project1_Car_Trunk&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../../data/Folder_Structures/Project1_Car_Trunk&#39;)
 </pre></div>
 </div>
 </div>
@@ -466,7 +466,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../data/Folder_Structures&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../../data/Folder_Structures&#39;)
 </pre></div>
 </div>
 </div>
@@ -480,7 +480,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../data/Folder_Structures/Project1_Car_Trunk/subdirectory/file.txt&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../../../data/Folder_Structures/Project1_Car_Trunk/subdirectory/file.txt&#39;)
 </pre></div>
 </div>
 </div>
@@ -512,13 +512,13 @@ Does the data path exist? True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0acd2c223d300ea55d0546797713851e818e5c697d073b7f4091b96ce0f3d2fe.png
-0bf33d3db4282d918ec3da7112d0bf0427d4eafe74b3ee0bb419770eefe8d7d6.png
-0b0d577159f0d6c266f360f7b8dfde46e16fa665138bf577ec3c6f9c70c0cd1e.png
-0a7d30b252359a10fd298b638b90cb9ada3acced4e0c0e5a3692013f432ee4e9.png
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nuclei.png
+more_nuclei.png
+staining.png
 .DS_store.txt
 Readme.txt
-00ae65c1c6631ae6f2be1a449902976e6eb8483bf6b0740d00530220832c6d3e.png
+nuclei_large.png
+tissue.png
 </pre></div>
 </div>
 </div>
@@ -532,11 +532,11 @@ Readme.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0acd2c223d300ea55d0546797713851e818e5c697d073b7f4091b96ce0f3d2fe.png
-0bf33d3db4282d918ec3da7112d0bf0427d4eafe74b3ee0bb419770eefe8d7d6.png
-0b0d577159f0d6c266f360f7b8dfde46e16fa665138bf577ec3c6f9c70c0cd1e.png
-0a7d30b252359a10fd298b638b90cb9ada3acced4e0c0e5a3692013f432ee4e9.png
-00ae65c1c6631ae6f2be1a449902976e6eb8483bf6b0740d00530220832c6d3e.png
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nuclei.png
+more_nuclei.png
+staining.png
+nuclei_large.png
+tissue.png
 </pre></div>
 </div>
 </div>
@@ -567,7 +567,7 @@ Readme.txt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e47c36ebce9fd32bfa9e3694ec2c4ebbdcc48f78f5d1b70805d89957a85e041.png" src="../../_images/3e47c36ebce9fd32bfa9e3694ec2c4ebbdcc48f78f5d1b70805d89957a85e041.png" />
+<img alt="../../_images/ba1c85396145bedf75927b0698795ee2790d442f56069ddcc4547c7645430812.png" src="../../_images/ba1c85396145bedf75927b0698795ee2790d442f56069ddcc4547c7645430812.png" />
 </div>
 </div>
 </section>
