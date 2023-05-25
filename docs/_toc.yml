@@ -15,12 +15,12 @@ chapters:
           - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/10_our_first_juptyer_notebook
           - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/20_Raw_workflow_example
           - file: 30_From_assistant_to_notebooks/10_exporting_workflows_as_notebooks/30_Documented_workflow_example
-      - file: 30_From_assistant_to_notebooks/20_Python_introduction/readme
+      - file: 30_From_assistant_to_notebooks/20_Python_Introduction/readme
         sections:
-          - file: 30_From_assistant_to_notebooks/20_Python_introduction/10_Math_in_python
-          - file: 30_From_assistant_to_notebooks/20_Python_introduction/20_Dont_try_this_at_home
-          - file: 30_From_assistant_to_notebooks/20_Python_introduction/30_Basic_types
-          - file: 30_From_assistant_to_notebooks/20_Python_introduction/40_lists_tuples
+          - file: 30_From_assistant_to_notebooks/20_Python_Introduction/10_Math_in_python
+          - file: 30_From_assistant_to_notebooks/20_Python_Introduction/20_Dont_try_this_at_home
+          - file: 30_From_assistant_to_notebooks/20_Python_Introduction/30_Basic_types
+          - file: 30_From_assistant_to_notebooks/20_Python_Introduction/40_lists_tuples
           - file: 30_From_assistant_to_notebooks/20_Python_Introduction/50_loops
       - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/readme
         sections:
