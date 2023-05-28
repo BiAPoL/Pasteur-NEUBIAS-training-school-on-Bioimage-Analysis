@@ -27,3 +27,10 @@ chapters:
           - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/10_Folder_structures
           - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/20_Advanced_Folder_structures_2
           - file: 30_From_assistant_to_notebooks/30_processing_folders_of_images/30_Folder_processing_example
+
+
+chapters:
+  - file: 40_GPU_acceleration_Python_Napari/readme
+    sections:
+      - file: 40_GPU_acceleration_Python_Napari/06_napari-assistant
+      - file: 40_GPU_acceleration_Python_Napari/07_notebook_export
