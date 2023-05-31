@@ -374,18 +374,19 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="basic-math-in-python">
 <h1>Basic math in python<a class="headerlink" href="#basic-math-in-python" title="Permalink to this heading">#</a></h1>
 <p>For understanding how Python works, we will do some basic math using variables and functions. Both play an important role in Python and will accompany us through all chapters.</p>
-<p>In the next cell we define a variable called “a” and we assign the value <code class="docutils literal notranslate"><span class="pre">5</span></code> to it.</p>
+<p>In the next cell we define variables called <code class="docutils literal notranslate"><span class="pre">room_width</span></code> and <code class="docutils literal notranslate"><span class="pre">room_length</span></code> and we assign the values <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">6</span></code> to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">room_width</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">room_length</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Afterwards, we can re-use this variable, for example to print it out:</p>
+<p>Afterwards, we can re-use these variables, for example to print them out:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">room_width</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -398,12 +399,12 @@ document.write(`
 <p>Somtimes, it might be helpful to put some additonal explanatory text when printing out variables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The area is&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Room width:&quot;</span><span class="p">,</span> <span class="n">room_width</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area is 5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Room width: 5
 </pre></div>
 </div>
 </div>
@@ -411,12 +412,12 @@ document.write(`
 <p>It shall be highlighted that good scientific practice is also to add physical units.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The area is&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;mm^2&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The room is&quot;</span><span class="p">,</span> <span class="n">room_width</span><span class="p">,</span> <span class="s2">&quot;m wide&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area is 5 mm^2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The room is 5 m wide
 </pre></div>
 </div>
 </div>
@@ -424,43 +425,40 @@ document.write(`
 <p>We can use multiple variables and combine them using mathematical operators:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">room_area</span> <span class="o">=</span> <span class="n">room_width</span> <span class="o">*</span> <span class="n">room_length</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">room_area</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">e</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">d</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">f</span> <span class="o">/</span> <span class="n">e</span>
-<span class="n">h</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">g</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate more properties of the room</span>
+<span class="n">room_circumference</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">room_width</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">room_length</span>
+<span class="n">room_aspect_ratio</span> <span class="o">=</span>  <span class="n">room_length</span> <span class="o">/</span> <span class="n">room_width</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The room has a circumference of&quot;</span><span class="p">,</span> <span class="n">room_circumference</span><span class="p">,</span> <span class="s2">&quot;m and an aspect ratio of&quot;</span><span class="p">,</span> <span class="n">room_aspect_ratio</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.285714285714286
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The room has a circumference of 22 m and an aspect ratio of 1.2
 </pre></div>
 </div>
 </div>
@@ -468,24 +466,25 @@ document.write(`
 <p>We can also get the value of a variable or expression (combination of variables) by putting it in a cell alone.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">room_circumference</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.285714285714286
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">room_height</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">room_width</span> <span class="o">*</span> <span class="n">room_length</span> <span class="o">*</span> <span class="n">room_height</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90
 </pre></div>
 </div>
 </div>
@@ -493,15 +492,15 @@ document.write(`
 <p>If you run illegal operations, such a dividing by zero, you receive an error message like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">/</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">room_width</span> <span class="o">/</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">room_width</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
 </pre></div>
@@ -622,7 +621,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;math&#39; is not defined
